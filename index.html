@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+    <title>
+      Hesai Viewer
+    </title>
+
+    <style type="text/css">
+        .installBody{
+            text-align: center;
+            margin-top: 300px;
+            font-size: 3rem;
+        }
+        .logoImage{
+          width: 150px;
+          height: 150px;
+          border-radius: 20px;
+        }
+        .appInfo{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+        }
+        .enterpriseTitle{
+          background-color: #8bc9ed;
+          border-radius: 10px;
+          color: #666666;
+          font-size: 14px;
+          margin-left: 20px;
+          padding: 5px;
+
+        }
+    </style>
+
+    <script>
+    function load()
+    {
+      function myBrowser(){
+          var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+          var isOpera = userAgent.indexOf("Opera") > -1;
+          if (isOpera) {
+              return "Opera"
+          }; //判断是否Opera浏览器
+          if (userAgent.indexOf("Firefox") > -1) {
+              return "FF";
+          } //判断是否Firefox浏览器
+          if (userAgent.indexOf("Chrome") > -1){
+              return "Chrome";
+           }
+          if (userAgent.indexOf("Safari") > -1) {
+              return "Safari";
+          } //判断是否Safari浏览器
+          if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+              return "IE";
+          }; //判断是否IE浏览器
+      }
+
+
+      var u = navigator.userAgent;
+      var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+      var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+      if(isiOS){
+        var mb = myBrowser();
+        if ("Safari" != mb) {
+            document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 16px; padding: 30px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>';
+            document.getElementById("iosJump").innerHTML='<a style="font-size: 14px;" href="https://support.apple.com/zh-cn/HT204460">未受信任的企业级开发者"解决办法</a>';
+            // document.getElementById("topView").innerHTML="<text style="color: #444444; font-size: 16px; padding: 20px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>";
+            alert("点击右上角按钮，在弹出的菜单中，点击在Safari中打开，即可安装");
+        }else{
+          window.location.href="itms-services:///?action=download-manifest&url=https://git.oschina.net/waitwait/companytest/blob/master/MDDTest.plist";
+        }
+      }else if (isAndroid){
+          //android 提示跳转浏览器安装
+          document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 16px; padding: 30px;">Android版本敬请期待，可扫描以下二维码安装iOS版本</text>';
+          // window.location.href="itms-services:///?action=download-manifest&url=https://git.oschina.net/waitwait/companytest/blob/master/MDDTest.plist";
+      }else{
+        alert("请在手机上使用浏览器打开本页面，或者扫描下面的二维码，即可安装");
+      }
+    }
+    </script>
+  </head>
+  <body onload="load()">
+    <div id="topView" class="appInfo" style="background-color: #ebebeb">
+
+    </div>
+    <div class="installBody">
+      <img class="logoImage" src="./assets/viewer_logo_200_200.jpeg" alt="Hesai Viewer">
+      <div class="appInfo">
+        <text style="color: #222222; font-size: 20px; margin-left: 10px; font-weight: 500">Hesai Viewer</text>
+        <text class="enterpriseTitle">企业版</text>
+      </div>
+      <img class="logoImage" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;">
+      <div class="appInfo" id="iosJump">
+      </div>
+
+      <div class="appInfo" style="margin-top: 100px;">
+        <img src="./assets/company_logo.png" alt="Hesai" style="width: 25px; height: 25px;">
+        <text style="color: #444444; font-size: 14px; margin-left: 15px;">上海禾赛光电科技有限公司</text>
+      </div>
+    </div>
+  </body>
+</html>
