@@ -14,9 +14,9 @@
             font-size: 3rem;
         }
         .logoImage{
-          width: 150px;
-          height: 150px;
-          border-radius: 20px;
+          width: 300px;
+          height: 300px;
+          border-radius: 30px;
         }
         .appInfo{
           display: flex;
@@ -29,10 +29,34 @@
           background-color: #8bc9ed;
           border-radius: 10px;
           color: #666666;
-          font-size: 14px;
+          font-size: 20px;
           margin-left: 20px;
           padding: 5px;
 
+        }
+        .buttonStyle {
+          	display: inline-block;
+          	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+          	*display: inline;
+          	vertical-align: baseline;
+          	margin: 0 2px;
+          	outline: none;
+          	cursor: pointer;
+          	text-align: center;
+          	text-decoration: none;
+          	font: 20px/100% Arial, Helvetica, sans-serif;
+          	padding: .5em 2em .55em;
+          	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+          	-webkit-border-radius: .5em;
+          	-moz-border-radius: .5em;
+          	border-radius: .5em;
+          	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+          	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+          	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+            height: 50px;
+            width: 150px;
+            background-color: #0bbfa2;
+            color: white;
         }
     </style>
 
@@ -90,19 +114,19 @@
     <div class="installBody">
       <img class="logoImage" src="./assets/viewer_logo_200_200.jpeg" alt="Hesai Viewer">
       <div class="appInfo">
-        <text style="color: #222222; font-size: 20px; margin-left: 10px; font-weight: 500">Hesai Viewer</text>
+        <text style="color: #222222; font-size: 30px; margin-left: 10px; font-weight: 500">Hesai Viewer</text>
         <text class="enterpriseTitle">企业版</text>
       </div>
       <img class="logoImage" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;">
       <div class="appInfo" id="downloadButtom">
-        <a href="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/MarkGitAccount/mark/master/hesai_viewer.plist">HELLO</a>
+        <a href="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/MarkGitAccount/mark/master/hesai_viewer.plist"><button class="buttonStyle">安装</button></a>
       </div>
       <div class="appInfo" id="iosJump">
       </div>
 
       <div class="appInfo" style="margin-top: 100px;">
-        <img src="./assets/company_logo.png" alt="Hesai" style="width: 25px; height: 25px;">
-        <text style="color: #444444; font-size: 14px; margin-left: 15px;">上海禾赛光电科技有限公司</text>
+        <img src="./assets/company_logo.png" alt="Hesai" style="width: 35px; height: 35px;">
+        <text style="color: #444444; font-size: 20px; margin-left: 15px;">上海禾赛光电科技有限公司</text>
       </div>
     </div>
   </body>
