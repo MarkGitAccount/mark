@@ -10,13 +10,19 @@
     <style type="text/css">
         .installBody{
             text-align: center;
-            margin-top: 250px;
             font-size: 3rem;
         }
         .logoImage{
           width: 350px;
           height: 350px;
           border-radius: 30px;
+          margin-top: 250px;
+        }
+        .logoImagepc{
+          width: 200px;
+          height: 200px;
+          border-radius: 10px;
+          margin-top: 50px;
         }
         .appInfo{
           display: flex;
@@ -33,6 +39,14 @@
           margin-left: 20px;
           padding: 5px;
 
+        }
+        .enterpriseTitlepc{
+          background-color: #8bc9ed;
+          border-radius: 10px;
+          color: #666666;
+          font-size: 25px;
+          margin-left: 20px;
+          padding: 5px;
         }
         .buttonStyle {
           	display: inline-block;
@@ -89,6 +103,8 @@
       var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
       var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
       if(isiOS){
+        document.getElementById("mainView").innerHTML='<div><img class="logoImage" src="./assets/viewer_logo_200_200.jpeg" alt="Hesai Viewer"><div class="appInfo"><text style="color: #222222; font-size: 45px; margin-left: 10px; font-weight: 500">Hesai Viewer</text><text class="enterpriseTitle">企业版</text></div><img class="logoImage" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;"></div>';
+        document.getElementById("bottomView").innerHTML='<img src="./assets/company_logo.png" alt="Hesai" style="width: 35px; height: 35px;"><text style="color: #444444; font-size: 35px; margin-left: 15px;">上海禾赛光电科技有限公司</text>';
         var mb = myBrowser();
         if ("Safari" != mb) {
             document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 40px; padding: 80px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>';
@@ -101,10 +117,15 @@
           // window.location.href="itms-services:///?action=download-manifest&url=https://markgitaccount.github.io/mark/hesai_viewer.plist";
         }
       }else if (isAndroid){
+          document.getElementById("mainView").innerHTML='<div><img class="logoImage" src="./assets/viewer_logo_200_200.jpeg" alt="Hesai Viewer"><div class="appInfo"><text style="color: #222222; font-size: 45px; margin-left: 10px; font-weight: 500">Hesai Viewer</text><text class="enterpriseTitle">企业版</text></div><img class="logoImage" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;"></div>';
           //android 提示跳转浏览器安装
           document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 35px; padding: 50px;">Android版本敬请期待，可扫描以下二维码安装iOS版本</text>';
+          document.getElementById("bottomView").innerHTML='<img src="./assets/company_logo.png" alt="Hesai" style="width: 35px; height: 35px;"><text style="color: #444444; font-size: 35px; margin-left: 15px;">上海禾赛光电科技有限公司</text>';
           // window.location.href="itms-services:///?action=download-manifest&url=https://git.oschina.net/waitwait/companytest/blob/master/MDDTest.plist";
       }else{
+        document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 30px; padding: 20px;">请在手机上使用浏览器打开本页面，或者扫描下面的二维码，即可安装</text>';
+        document.getElementById("mainView").innerHTML='<div><img class="logoImagepc" src="./assets/viewer_logo_200_200.jpeg" alt="Hesai Viewer"><div class="appInfo"><text style="color: #222222; font-size: 35px; margin-left: 10px; font-weight: 500">Hesai Viewer</text><text class="enterpriseTitlepc">企业版</text></div><img class="logoImagepc" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;"></div>';
+        document.getElementById("bottomView").innerHTML='<img src="./assets/company_logo.png" alt="Hesai" style="width: 35px; height: 35px;"><text style="color: #444444; font-size: 20px; margin-left: 15px;">上海禾赛光电科技有限公司</text>';
         alert("请在手机上使用浏览器打开本页面，或者扫描下面的二维码，即可安装");
       }
     }
@@ -115,12 +136,9 @@
 
     </div>
     <div class="installBody">
-      <img class="logoImage" src="./assets/viewer_logo_200_200.jpeg" alt="Hesai Viewer">
-      <div class="appInfo">
-        <text style="color: #222222; font-size: 45px; margin-left: 10px; font-weight: 500">Hesai Viewer</text>
-        <text class="enterpriseTitle">企业版</text>
+      <div id="mainView">
+
       </div>
-      <img class="logoImage" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;">
       <div class="appInfo" id="downloadButtom">
 
       </div>
@@ -128,9 +146,8 @@
 
       </div>
 
-      <div class="appInfo" style="margin-top: 200px;">
-        <img src="./assets/company_logo.png" alt="Hesai" style="width: 35px; height: 35px;">
-        <text style="color: #444444; font-size: 35px; margin-left: 15px;">上海禾赛光电科技有限公司</text>
+      <div class="appInfo" style="margin-top: 200px;" id="bottomView">
+
       </div>
     </div>
   </body>
