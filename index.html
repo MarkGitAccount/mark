@@ -71,7 +71,7 @@
             // document.getElementById("topView").innerHTML="<text style="color: #444444; font-size: 16px; padding: 20px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>";
             alert("点击右上角按钮，在弹出的菜单中，点击在Safari中打开，即可安装");
         }else{
-          window.location.href="itms-services:///?action=download-manifest&url=https://markgitaccount.github.io/mark/hesai_viewer.plist";
+          // window.location.href="itms-services:///?action=download-manifest&url=https://markgitaccount.github.io/mark/hesai_viewer.plist";
         }
       }else if (isAndroid){
           //android 提示跳转浏览器安装
@@ -94,6 +94,9 @@
         <text class="enterpriseTitle">企业版</text>
       </div>
       <img class="logoImage" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;">
+      <div class="appInfo" id="downloadButtom">
+        <a href="itms-services://?action=download-manifest&url=https://markgitaccount.github.io/mark/hesai_viewer.plist">HELLO</a>
+      </div>
       <div class="appInfo" id="iosJump">
       </div>
 
