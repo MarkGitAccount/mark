@@ -110,7 +110,7 @@
             document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 40px; padding: 80px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>';
             alert("点击右上角按钮，在弹出的菜单中，点击在Safari中打开，即可安装");
         }else{
-          document.getElementById("downloadButton").innerHTML='<a href="itms-services://?action=download-manifest&url=https://hsdown.blob.core.chinacloudapi.cn/upload/manifest.plist"><button class="buttonStyle">安装</button></a>';
+          document.getElementById("downloadButton").innerHTML='<a href="itms-services:///?action=download-manifest&url=https://hsdown.blob.core.chinacloudapi.cn/upload/manifest.plist"><button class="buttonStyle">安装</button></a>';
           document.getElementById("iosJump").innerHTML='<a style="font-size: 30px; margin-top: 100px;" href="https://support.apple.com/zh-cn/HT204460">未受信任的企业级开发者"解决办法</a>';
           // window.location.href="itms-services:///?action=download-manifest&url=https://markgitaccount.github.io/mark/hesai_viewer.plist";
         }
@@ -137,7 +137,7 @@
       <div id="mainView">
 
       </div>
-      <a href="https://hsdown.blob.core.chinacloudapi.cn/upload/manifest.plist">https://hsdown.blob.core.chinacloudapi.cn/upload/manifest.plist</a>
+      <a href="itms-services:///?action=download-manifest&url=https://hsdown.blob.core.chinacloudapi.cn/upload/manifest.plist">itms-services:///?action=download-manifest&url=https://hsdown.blob.core.chinacloudapi.cn/upload/manifest.plist</a>
       <div class="appInfo" id="downloadButton">
 
       </div>
