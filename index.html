@@ -29,7 +29,7 @@
           background-color: #8bc9ed;
           border-radius: 10px;
           color: #666666;
-          font-size: 20px;
+          font-size: 25px;
           margin-left: 20px;
           padding: 5px;
 
@@ -44,7 +44,7 @@
           	cursor: pointer;
           	text-align: center;
           	text-decoration: none;
-          	font: 20px/100% Arial, Helvetica, sans-serif;
+          	font: 25px/100% Arial, Helvetica, sans-serif;
           	padding: .5em 2em .55em;
           	text-shadow: 0 1px 1px rgba(0,0,0,.3);
           	-webkit-border-radius: .5em;
@@ -53,8 +53,8 @@
           	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
           	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
           	box-shadow: 0 1px 2px rgba(0,0,0,.2);
-            height: 50px;
-            width: 150px;
+            height: 60px;
+            width: 2000px;
             background-color: #0bbfa2;
             color: white;
         }
@@ -90,10 +90,10 @@
       if(isiOS){
         var mb = myBrowser();
         if ("Safari" != mb) {
-            document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 16px; padding: 30px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>';
+            document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 28px; padding: 30px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>';
             document.getElementById("downloadButtom").innerHTML='<a href="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/MarkGitAccount/mark/master/hesai_viewer.plist"><button class="buttonStyle">安装</button></a>';
 
-            document.getElementById("iosJump").innerHTML='<a style="font-size: 14px; margin-top: 20px;" href="https://support.apple.com/zh-cn/HT204460">未受信任的企业级开发者"解决办法</a>';
+            document.getElementById("iosJump").innerHTML='<a style="font-size: 25px; margin-top: 20px;" href="https://support.apple.com/zh-cn/HT204460">未受信任的企业级开发者"解决办法</a>';
             // document.getElementById("topView").innerHTML="<text style="color: #444444; font-size: 16px; padding: 20px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>";
             alert("点击右上角按钮，在弹出的菜单中，点击在Safari中打开，即可安装");
         }else{
@@ -101,7 +101,7 @@
         }
       }else if (isAndroid){
           //android 提示跳转浏览器安装
-          document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 16px; padding: 30px;">Android版本敬请期待，可扫描以下二维码安装iOS版本</text>';
+          document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 28px; padding: 30px;">Android版本敬请期待，可扫描以下二维码安装iOS版本</text>';
           // window.location.href="itms-services:///?action=download-manifest&url=https://git.oschina.net/waitwait/companytest/blob/master/MDDTest.plist";
       }else{
         alert("请在手机上使用浏览器打开本页面，或者扫描下面的二维码，即可安装");
@@ -116,7 +116,7 @@
     <div class="installBody">
       <img class="logoImage" src="./assets/viewer_logo_200_200.jpeg" alt="Hesai Viewer">
       <div class="appInfo">
-        <text style="color: #222222; font-size: 30px; margin-left: 10px; font-weight: 500">Hesai Viewer</text>
+        <text style="color: #222222; font-size: 35px; margin-left: 10px; font-weight: 500">Hesai Viewer</text>
         <text class="enterpriseTitle">企业版</text>
       </div>
       <img class="logoImage" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;">
@@ -128,7 +128,7 @@
 
       <div class="appInfo" style="margin-top: 100px;">
         <img src="./assets/company_logo.png" alt="Hesai" style="width: 35px; height: 35px;">
-        <text style="color: #444444; font-size: 20px; margin-left: 15px;">上海禾赛光电科技有限公司</text>
+        <text style="color: #444444; font-size: 25px; margin-left: 15px;">上海禾赛光电科技有限公司</text>
       </div>
     </div>
   </body>
