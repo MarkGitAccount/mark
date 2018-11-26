@@ -29,9 +29,9 @@
           background-color: #8bc9ed;
           border-radius: 10px;
           color: #666666;
-          font-size: 30px;
+          font-size: 35px;
           margin-left: 20px;
-          padding: 10px;
+          padding: 15px;
 
         }
         .buttonStyle {
@@ -91,10 +91,10 @@
       if(isiOS){
         var mb = myBrowser();
         if ("Safari" != mb) {
-            document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 35px; padding: 50px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>';
+            document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 40px; padding: 80px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>';
             document.getElementById("downloadButtom").innerHTML='<a href="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/MarkGitAccount/mark/master/hesai_viewer.plist"><button class="buttonStyle">安装</button></a>';
 
-            document.getElementById("iosJump").innerHTML='<a style="font-size: 30px; margin-top: 80px;" href="https://support.apple.com/zh-cn/HT204460">未受信任的企业级开发者"解决办法</a>';
+            document.getElementById("iosJump").innerHTML='<a style="font-size: 30px; margin-top: 100px;" href="https://support.apple.com/zh-cn/HT204460">未受信任的企业级开发者"解决办法</a>';
             // document.getElementById("topView").innerHTML="<text style="color: #444444; font-size: 16px; padding: 20px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>";
             alert("点击右上角按钮，在弹出的菜单中，点击在Safari中打开，即可安装");
         }else{
@@ -117,7 +117,7 @@
     <div class="installBody">
       <img class="logoImage" src="./assets/viewer_logo_200_200.jpeg" alt="Hesai Viewer">
       <div class="appInfo">
-        <text style="color: #222222; font-size: 40px; margin-left: 10px; font-weight: 500">Hesai Viewer</text>
+        <text style="color: #222222; font-size: 45px; margin-left: 10px; font-weight: 500">Hesai Viewer</text>
         <text class="enterpriseTitle">企业版</text>
       </div>
       <img class="logoImage" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;">
@@ -128,9 +128,9 @@
 
       </div>
 
-      <div class="appInfo" style="margin-top: 100px;">
+      <div class="appInfo" style="margin-top: 200px;">
         <img src="./assets/company_logo.png" alt="Hesai" style="width: 35px; height: 35px;">
-        <text style="color: #444444; font-size: 30px; margin-left: 15px;">上海禾赛光电科技有限公司</text>
+        <text style="color: #444444; font-size: 35px; margin-left: 15px;">上海禾赛光电科技有限公司</text>
       </div>
     </div>
   </body>
