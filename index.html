@@ -1,152 +1,47 @@
-<!DOCTYPE html>
-<html lang="zh">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
-    <title>
-      Hesai Viewer
-    </title>
-
-    <style type="text/css">
-        .installBody{
-            text-align: center;
-            font-size: 3rem;
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+</head>
+<body style="padding:20px;">
+<a href="javascript:;" class="weui-btn weui-btn_primary" id="payBtn">微信支付</a>
+</body>
+<script>
+    if (typeof WeixinJSBridge == "undefined") {
+        if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
         }
-        .logoImage{
-          width: 350px;
-          height: 350px;
-          border-radius: 30px;
-          margin-top: 250px;
-        }
-        .logoImagepc{
-          width: 200px;
-          height: 200px;
-          border-radius: 10px;
-          margin-top: 50px;
-        }
-        .appInfo{
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          text-align: center;
-          justify-content: center;
-        }
-        .enterpriseTitle{
-          background-color: #8bc9ed;
-          border-radius: 10px;
-          color: #666666;
-          font-size: 35px;
-          margin-left: 20px;
-          padding: 5px;
-
-        }
-        .enterpriseTitlepc{
-          background-color: #8bc9ed;
-          border-radius: 10px;
-          color: #666666;
-          font-size: 25px;
-          margin-left: 20px;
-          padding: 5px;
-        }
-        .buttonStyle {
-          	display: inline-block;
-          	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
-          	*display: inline;
-          	vertical-align: baseline;
-          	margin: 0 2px;
-          	outline: none;
-          	cursor: pointer;
-          	text-align: center;
-          	text-decoration: none;
-          	font: 30px/100% Arial, Helvetica, sans-serif;
-          	padding: .5em 2em .55em;
-          	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-          	-webkit-border-radius: .5em;
-          	-moz-border-radius: .5em;
-          	border-radius: .5em;
-          	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-          	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-          	box-shadow: 0 1px 2px rgba(0,0,0,.2);
-            height: 80px;
-            width: 300px;
-            background-color: #0bbfa2;
-            color: white;
-            margin-top: 60px;
-        }
-    </style>
-
-    <script>
-    function load()
-    {
-      function myBrowser(){
-          var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
-          var isOpera = userAgent.indexOf("Opera") > -1;
-          if (isOpera) {
-              return "Opera"
-          }; //判断是否Opera浏览器
-          if (userAgent.indexOf("Firefox") > -1) {
-              return "FF";
-          } //判断是否Firefox浏览器
-          if (userAgent.indexOf("Chrome") > -1){
-              return "Chrome";
-           }
-          if (userAgent.indexOf("Safari") > -1) {
-              return "Safari";
-          } //判断是否Safari浏览器
-          if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
-              return "IE";
-          }; //判断是否IE浏览器
-      }
-
-
-      var u = navigator.userAgent;
-      var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-      var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-      if(isiOS){
-        document.getElementById("mainView").innerHTML='<div><img class="logoImage" src="./assets/viewer_logo_200_200.jpeg" alt="Hesai Viewer"><div class="appInfo"><text style="color: #222222; font-size: 45px; margin-left: 10px; font-weight: 500">Hesai Viewer</text><text class="enterpriseTitle">企业版</text></div><img class="logoImage" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;"></div>';
-        document.getElementById("bottomView").innerHTML='<img src="./assets/company_logo.png" alt="Hesai" style="width: 35px; height: 35px;"><text style="color: #444444; font-size: 35px; margin-left: 15px;">上海禾赛光电科技有限公司</text>';
-        var mb = myBrowser();
-        if ("Safari" != mb) {
-            document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 40px; padding: 80px;">点击右上角按钮，然后点击在Safari中打开，即可安装</text>';
-            alert("点击右上角按钮，在弹出的菜单中，点击在Safari中打开，即可安装");
-        }else{
-          document.getElementById("downloadButton").innerHTML='<a href="itms-services://?action=download-manifest&url=https://hsdown.blob.core.chinacloudapi.cn/upload/manifest.plist"><button class="buttonStyle">安装</button></a>';
-          document.getElementById("iosJump").innerHTML='<a style="font-size: 30px; margin-top: 100px;" href="https://support.apple.com/zh-cn/HT204460">未受信任的企业级开发者"解决办法</a>';
-          // window.location.href="itms-services:///?action=download-manifest&url=https://markgitaccount.github.io/mark/hesai_viewer.plist";
-        }
-      }else if (isAndroid){
-          document.getElementById("mainView").innerHTML='<div><img class="logoImage" src="./assets/viewer_logo_200_200.jpeg" alt="Hesai Viewer"><div class="appInfo"><text style="color: #222222; font-size: 45px; margin-left: 10px; font-weight: 500">Hesai Viewer</text><text class="enterpriseTitle">企业版</text></div><img class="logoImage" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;"></div>';
-          //android 提示跳转浏览器安装
-          document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 35px; padding: 50px;">Android版本敬请期待，可扫描以下二维码安装iOS版本</text>';
-          document.getElementById("bottomView").innerHTML='<img src="./assets/company_logo.png" alt="Hesai" style="width: 35px; height: 35px;"><text style="color: #444444; font-size: 35px; margin-left: 15px;">上海禾赛光电科技有限公司</text>';
-          // window.location.href="itms-services:///?action=download-manifest&url=https://git.oschina.net/waitwait/companytest/blob/master/MDDTest.plist";
-      }else{
-        document.getElementById("topView").innerHTML='<text style="color: #444444; font-size: 30px; padding: 20px;">请在手机上使用浏览器打开本页面，或者扫描下面的二维码，即可安装</text>';
-        document.getElementById("mainView").innerHTML='<div><img class="logoImagepc" src="./assets/viewer_logo_200_200.jpeg" alt="Hesai Viewer"><div class="appInfo"><text style="color: #222222; font-size: 35px; margin-left: 10px; font-weight: 500">Hesai Viewer</text><text class="enterpriseTitlepc">企业版</text></div><img class="logoImagepc" src="./assets/hesaiviwer_coder.png" alt="Hesai Viewer" style="margin-top: 50px;"></div>';
-        document.getElementById("bottomView").innerHTML='<img src="./assets/company_logo.png" alt="Hesai" style="width: 35px; height: 35px;"><text style="color: #444444; font-size: 20px; margin-left: 15px;">上海禾赛光电科技有限公司</text>';
-        alert("请在手机上使用浏览器打开本页面，或者扫描下面的二维码，即可安装");
-      }
     }
-    </script>
-  </head>
-  <body onload="load()">
-    <div id="topView" class="appInfo" style="background-color: #ebebeb">
-
-    </div>
-    <div class="installBody">
-      <div id="mainView">
-
-      </div>
-      <div class="appInfo" id="downloadButton">
-
-      </div>
-      <div class="appInfo" id="iosJump">
-
-      </div>
-
-      <div class="appInfo" style="margin-top: 200px;" id="bottomView">
-
-      </div>
-    </div>
-  </body>
-</html>
+    function onBridgeReady() {
+        WeixinJSBridge.call('hideOptionMenu');
+    }
+    $('#payBtn').on('click', function () {
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest', {
+                    // 以下6个支付参数通过payjs的jsapi接口获取
+                    // **************************
+                    "appId": "wxc5205a653b0259ac",
+                    "timeStamp": "15100000000",
+                    "nonceStr": "9cJEu27X6KehHGM8",
+                    "package": "prepay_id=wx162234040923141245861167",
+                    "signType": "MD5",
+                    "paySign": "D64EF3ADBCA224E435D321619710C008"
+                    // **************************
+                },
+                function (res) {
+                    if (res.err_msg == "get_brand_wcpay_request:ok") {
+                        WeixinJSBridge.call('closeWindow');
+                    }
+                }
+        );
+    });
+</script>
